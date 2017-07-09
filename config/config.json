@@ -1,0 +1,7 @@
+{
+  "app": {
+    "name": "Big Data"
+  },
+  "port": 3000,
+  "db": "mongodb://localhost/big-data"
+}
