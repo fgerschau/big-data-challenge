@@ -1,0 +1,11 @@
+{
+  "name": "big-data-challenge",
+  "version": "1.0.0",
+  "description": "Analyzing race data.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Felix Gerschau",
+  "license": "ISC"
+}
