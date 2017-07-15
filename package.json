@@ -9,8 +9,11 @@
   "author": "Felix Gerschau",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
+    "co": "^4.6.0",
     "compression": "^1.6.2",
+    "csvtojson": "^1.1.7",
     "express": "^4.15.3",
     "log4js": "^1.1.1",
     "mongoose": "^4.11.1",
