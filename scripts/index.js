@@ -107,6 +107,7 @@ function main() {
       const race = raceData[i];
       yield raceBll.create(race);
     }
+
     logger.info('Done!');
 
     process.exit(0);
