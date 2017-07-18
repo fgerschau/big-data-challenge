@@ -3,6 +3,7 @@
 const raceBll = require('../app/bll/race');
 const config = require('../config/config.json');
 const db = require('../config/database');
+const parseSerializedForecastArray = require('./helpers').parseSerializedForecastArray;
 
 const co = require('co');
 const bluebird = require('bluebird');
@@ -48,6 +49,7 @@ function mapRace(race) {
     fuelConsumption: race.fuel_consumption ? parseAndCheckNumber(race.fuel_consumption, 'float') : null,
     winnerId: race.winner ? parseAndCheckNumber(race.winner) : null,
     status: race.status,
+    forecast: parseSerializedForecastArray(race.forecast),
     weather: race.weather,
   };
 }
