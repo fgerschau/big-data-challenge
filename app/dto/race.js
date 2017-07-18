@@ -11,6 +11,7 @@ const race = {
   winnerId: Number,
   status: String,
   weather: String,
+  forecast: Object,
 };
 
 const raceSchema = new Schema(race);
