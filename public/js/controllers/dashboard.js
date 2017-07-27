@@ -2,6 +2,12 @@ bigDataApp.controller('dashboardController', function ($scope, raceService) {
   function createPieChart(data, labels, context) {
     new Chart(context, {
       type: 'pie',
+      options: {
+        title: {
+          display: true,
+          text: 'Vergleich Sonniges Wetter Rennbahnen',
+        }
+      },
       data: {
         labels: labels,
         datasets: [{
