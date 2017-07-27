@@ -1,30 +1,38 @@
 bigDataApp.controller('dashboardController', function ($scope) {
-  var racesCancelledContext = document.getElementById('racesCancelled');
-  var racesCancelledChart = new Chart(racesCancelledContext, {
-    type: 'pie',
-    data: {
-      labels: ['thunder', 'rainy', 'sunny'],
-      datasets: [{
-        label: '# of Votes',
-        data: [50, 20, 30],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-        ],
-        borderColor: [
-          'rgba(255,99,132,1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-        ],
-        borderWidth: 1,
-      }],
-    },
-  });
+  function createPieChart(data, labels, context) {
+    new Chart(context, {
+      type: 'pie',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Weather probability',
+          data: data,
+          backgroundColor: [
+            '#001524',
+            '#000406',
+            '#002642',
+            '#134074',
+            '#8DA9C4',
+            '#EEF4ED',
+          ],
+          borderColor: [
+            '#001524',
+            '#000406',
+            '#002642',
+            '#134074',
+            '#8DA9C4',
+            '#EEF4ED',
+          ],
+          borderWidth: 1,
+        }],
+      },
+    });
+  }
+
+  var weatherContext = document.getElementById('racesCancelled');
+
+  var labels = ['Thunder', 'Rainy', 'Sunny'];
+  var data = [0.5, 0.2, 0.3];
+
+  createPieChart(data, labels, weatherContext);
 });
