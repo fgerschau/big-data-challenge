@@ -10,7 +10,7 @@ const race = {
   fuelConsumption: Number,
   winnerId: Number,
   status: String,
-  weather: String,
+  weather: String, // can have the values [ "rainy", "sunny", "", "snowy", "thundery" ] (empty string when the race was not driven)
   forecast: Object,
 };
 
