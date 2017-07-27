@@ -12,3 +12,12 @@ exports.create = function (req, res) {
     res.send(race);
   }).catch(handleError);
 };
+
+exports.getTrackIdsWeatherCount = function (req, res) {
+  co(function* () {
+    const weather = req.params.weather;
+
+    const trackIdsWeatherCount = yield raceBll.getTrackIdsWeatherCount(weather);
+    res.send(trackIdsWeatherCount);
+  }).catch(handleError);
+};
