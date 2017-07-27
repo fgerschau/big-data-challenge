@@ -8,3 +8,11 @@ canvas,
   height: 50px;
   width: 50px;
 }
+h1.title {
+  color: #c8000a;
+  margin-top: 1.5em;
+}
+h2.card-title {
+  color: #c8000a;
+  margin-bottom: 2em;
+}

@@ -4,10 +4,16 @@ block header
 
 block content
   div(ng-controller="dashboardController")
-    .col-md-6
-      .jumbotron.main-container
+    .row
+      .col-md-12
+        h1.title.text-center Dashboard
+    .row
+      .col-md-6
+        .jumbotron.main-container
+          h2.card-title Sonniges Wetter bei Rennbahnen in Prozent
           .col-md-12
             canvas#weatherPie
 block scripts
   script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js")
+  script(src="/js/services/race.js")
   script(src="/js/controllers/dashboard.js")

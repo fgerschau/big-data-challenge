@@ -1,4 +1,4 @@
-bigDataApp.controller('dashboardController', function ($scope) {
+bigDataApp.controller('dashboardController', function ($scope, raceService) {
   function createPieChart(data, labels, context) {
     new Chart(context, {
       type: 'pie',
@@ -8,20 +8,33 @@ bigDataApp.controller('dashboardController', function ($scope) {
           label: 'Weather probability',
           data: data,
           backgroundColor: [
-            '#001524',
+            '#41337A',
+            '#E8871E',
+            '#EF5D60',
+            '#3E4E50',
             '#000406',
             '#002642',
             '#134074',
             '#8DA9C4',
             '#EEF4ED',
+            '#A10702',
+            '#001524',
+            '#C3615E',
           ],
           borderColor: [
-            '#001524',
+            '#41337A',
+            '#E8871E',
+            '#EF5D60',
+            '#3E4E50',
             '#000406',
             '#002642',
             '#134074',
             '#8DA9C4',
             '#EEF4ED',
+            '#A10702',
+            '#001524',
+            '#C3615E',
+
           ],
           borderWidth: 1,
         }],
@@ -31,8 +44,22 @@ bigDataApp.controller('dashboardController', function ($scope) {
 
   var weatherContext = document.getElementById('weatherPie');
 
-  var labels = ['Thunder', 'Rainy', 'Sunny'];
-  var data = [0.5, 0.2, 0.3];
+  raceService.getTrackIdsWeatherCount('sunny').then(function (data) {
+    var labels = data.map(function (item) {
+      return item.trackId;
+    });
 
-  createPieChart(data, labels, weatherContext);
+    var sum = 0;
+    for (var i = 0; i < data.length; i++) {
+      sum += data[i].weatherCount;
+    }
+
+    var chartData = data.map(function (item) {
+      var percentage = item.weatherCount / sum * 100;
+      return percentage.toFixed(0)
+    });
+
+    createPieChart(chartData, labels, weatherContext);
+  });
+
 });
