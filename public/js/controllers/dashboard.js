@@ -29,7 +29,7 @@ bigDataApp.controller('dashboardController', function ($scope) {
     });
   }
 
-  var weatherContext = document.getElementById('racesCancelled');
+  var weatherContext = document.getElementById('weatherPie');
 
   var labels = ['Thunder', 'Rainy', 'Sunny'];
   var data = [0.5, 0.2, 0.3];
