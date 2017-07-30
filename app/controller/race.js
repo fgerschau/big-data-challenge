@@ -16,8 +16,9 @@ exports.create = function (req, res) {
 exports.getTrackIdsWeatherCount = function (req, res) {
   co(function* () {
     const weather = req.params.weather;
+    const options = req.query.options || {};
 
-    const trackIdsWeatherCount = yield raceBll.getTrackIdsWeatherCount(weather);
+    const trackIdsWeatherCount = yield raceBll.getTrackIdsWeatherCount(weather, options);
     res.send(trackIdsWeatherCount);
   }).catch(handleError);
 };

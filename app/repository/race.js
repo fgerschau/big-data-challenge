@@ -6,8 +6,8 @@ exports.create = function* (race) {
   return yield raceModel.create(race);
 };
 
-exports.getTrackIdsWeatherCount = function* (weather) {
-  return yield raceModel.aggregate([
+exports.getTrackIdsWeatherCount = function* (weather, options) {
+  const query = [
     {
       $match: {
         weather,
@@ -25,7 +25,19 @@ exports.getTrackIdsWeatherCount = function* (weather) {
         weatherCount: 1,
       },
     },
-  ]);
+  ];
+
+  if (options.sort) {
+    const sort = {
+      $sort: {
+        weatherCount: -1,
+      },
+    };
+
+    query.push(sort);
+  }
+
+  return yield raceModel.aggregate(query);
 };
 
 exports.deleteAll = function* () {

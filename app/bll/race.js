@@ -9,8 +9,8 @@ exports.create = function* (race) {
   return newRace;
 };
 
-exports.getTrackIdsWeatherCount = function* (weather) {
-  let trackIdsWeatherCount = yield raceRepository.getTrackIdsWeatherCount(weather);
+exports.getTrackIdsWeatherCount = function* (weather, options) {
+  let trackIdsWeatherCount = yield raceRepository.getTrackIdsWeatherCount(weather, options);
   trackIdsWeatherCount = _.sortBy(trackIdsWeatherCount, item => item.weatherCount);
   trackIdsWeatherCount = trackIdsWeatherCount.reverse();
 
