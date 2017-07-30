@@ -31,3 +31,29 @@ exports.getTrackIdsWeatherCount = function* (weather) {
 exports.deleteAll = function* () {
   yield raceModel.remove({});
 };
+
+exports.getTopTenRacers = function* () {
+  return yield raceModel.aggregate([
+    {
+      $group: {
+        _id: '$winnerId',
+        racesWon: {
+          $sum: 1,
+        },
+      },
+    }, {
+      $project: {
+        racesWon: 1,
+        winnerId: 1,
+      },
+    }, {
+      $sort: {
+        racesWon: -1,
+      },
+    }, {
+      $skip: 1,
+    }, {
+      $limit: 10,
+    },
+  ]);
+};

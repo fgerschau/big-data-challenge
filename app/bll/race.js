@@ -20,3 +20,8 @@ exports.getTrackIdsWeatherCount = function* (weather) {
 exports.deleteAll = function* () {
   yield raceRepository.deleteAll();
 };
+
+exports.getTopTenRacers = function * () {
+  const topTenRacers = yield raceRepository.getTopTenRacers();
+  return topTenRacers;
+};

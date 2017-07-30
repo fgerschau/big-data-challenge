@@ -21,3 +21,10 @@ exports.getTrackIdsWeatherCount = function (req, res) {
     res.send(trackIdsWeatherCount);
   }).catch(handleError);
 };
+
+exports.getTopTenRacers = function (req, res) {
+  co(function* () {
+    const topTenRacers = yield raceBll.getTopTenRacers();
+    res.send(topTenRacers);
+  }).catch(handleError);
+};
