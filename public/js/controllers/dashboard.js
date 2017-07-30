@@ -1,4 +1,8 @@
 bigDataApp.controller('dashboardController', function ($scope, raceService) {
+  $scope.weatherChartData = [];
+  $scope.topTenRacers = [];
+  $scope.thunderyTracks = [];
+
   function createPieChart(data, labels, context) {
     new Chart(context, {
       type: 'pie',
@@ -66,6 +70,7 @@ bigDataApp.controller('dashboardController', function ($scope, raceService) {
     });
 
     createPieChart(chartData, labels, weatherContext);
+    $scope.weatherChartData = data; // for placeholder directive
   });
 
   raceService.getTopTenRacers().then(function (racers) {
