@@ -68,4 +68,7 @@ bigDataApp.controller('dashboardController', function ($scope, raceService) {
     createPieChart(chartData, labels, weatherContext);
   });
 
+  raceService.getTopTenRacers().then(function (racers) {
+    $scope.topTenRacers = racers;
+  });
 });

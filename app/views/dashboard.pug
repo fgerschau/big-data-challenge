@@ -17,8 +17,31 @@ block content
           .row
             .col-md-12
               h2.card-title.text-center Sonniges Wetter
-
             canvas#weatherPie
+
+      .col-md-6
+        .jumbotron.main-container
+          .row
+            .col-md-12
+              #champagne-shower
+          hr
+          .row
+            .col-md-12
+              h2.card-title.text-center Top 10 Rennfahrer
+          .row
+            .col-md-12
+              table.table.table-bordered
+                .thead.thead-default
+                  tr
+                    th #
+                    th Rennfahrer ID
+                    th Gewonnene Rennen
+                .tbody
+                  tr(ng-repeat="racer in topTenRacers")
+                    th(ng-bind="$index + 1")
+                    th(ng-bind="racer._id")
+                    th(ng-bind="racer.racesWon")
+    
 block scripts
   script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js")
   script(src="/js/services/race.js")
