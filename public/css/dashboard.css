@@ -25,3 +25,8 @@ h1.title {
   height: 100px;
   width: 100%;
 }
+#thunder {
+  background: url('../images/thunder.png') no-repeat;
+  height: 100px;
+  width: 100%;
+}

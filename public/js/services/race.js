@@ -3,8 +3,9 @@ bigDataApp.service('raceService', function ($http) {
     return response.data;
   }
 
-  this.getTrackIdsWeatherCount = function (weather) {
-    return $http.get('/api/race/tracks/weather-count/' + weather).then(responseData);
+  this.getTrackIdsWeatherCount = function (weather, options) {
+    options = options || {};
+    return $http.get('/api/race/tracks/weather-count/' + weather, options).then(responseData);
   };
 
   this.getTopTenRacers = function () {

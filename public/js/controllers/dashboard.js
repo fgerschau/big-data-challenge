@@ -71,4 +71,12 @@ bigDataApp.controller('dashboardController', function ($scope, raceService) {
   raceService.getTopTenRacers().then(function (racers) {
     $scope.topTenRacers = racers;
   });
+
+  var optionsThunderCount = {
+    sort: true,
+  };
+
+  raceService.getTrackIdsWeatherCount('thundery', optionsThunderCount).then(function (data) {
+    $scope.thunderyTracks = data.slice(0, 3);
+  });
 });

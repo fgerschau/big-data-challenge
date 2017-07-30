@@ -41,6 +41,29 @@ block content
                     th(ng-bind="$index + 1")
                     th(ng-bind="racer._id")
                     th(ng-bind="racer.racesWon")
+    .row
+      .col-md-6
+        .jumbotron.main-container
+          .row
+            .col-md-12
+              #thunder
+          hr
+          .row
+            .col-md-12
+              h2.card-title.text-center Meiste Gewitter
+          .row
+            .col-md-12
+              table.table.table-bordered
+                .thead.thead-default
+                  tr
+                    th #
+                    th Strecken ID
+                    th Renntage mit Gewitter
+                .tbody
+                  tr(ng-repeat="track in thunderyTracks")
+                    th(ng-bind="$index + 1")
+                    th(ng-bind="track.trackId")
+                    th(ng-bind="track.weatherCount")
     
 block scripts
   script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js")
