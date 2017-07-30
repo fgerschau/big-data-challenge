@@ -6,6 +6,7 @@ const race = {
   driven: Date,
   trackId: Number,
   challengerId: Number,
+  opponentId: Number,
   money: Number,
   fuelConsumption: Number,
   winnerId: Number,
