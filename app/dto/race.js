@@ -17,4 +17,8 @@ const race = {
 
 const raceSchema = new Schema(race);
 
+// Creates indexes on require only if they did not exist previously
+raceSchema.index({ weather: 1 });
+raceSchema.index({ winnerId: 1 });
+
 module.exports = mongoose.model('race', raceSchema);
