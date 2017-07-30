@@ -16,3 +16,7 @@ exports.getTrackIdsWeatherCount = function* (weather) {
 
   return trackIdsWeatherCount;
 };
+
+exports.deleteAll = function* () {
+  yield raceRepository.deleteAll();
+};

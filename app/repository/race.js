@@ -27,3 +27,7 @@ exports.getTrackIdsWeatherCount = function* (weather) {
     },
   ]);
 };
+
+exports.deleteAll = function* () {
+  yield raceModel.remove({});
+};
