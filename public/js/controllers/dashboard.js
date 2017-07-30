@@ -5,7 +5,7 @@ bigDataApp.controller('dashboardController', function ($scope, raceService) {
       options: {
         title: {
           display: true,
-          text: 'Vergleich Sonniges Wetter Rennbahnen',
+          text: 'Vergleich Sonniges Wetter Rennbahnen in %',
         }
       },
       data: {

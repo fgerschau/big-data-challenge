@@ -6,10 +6,11 @@ block content
   div(ng-controller="dashboardController")
     .row
       .col-md-12
-        h1.title.text-center Dashboard
+        h1.title.text-center Wilkommen zur Big-Data Renn-Analyse!
+        h3.subtitle.text-center Alles was du zur Formel 1 wissen musst.
     .row
       .col-md-6
-        .jumbotron.main-container
+        .jumbotron.card-container
           .row
             .col-md-12
               #sunny-track
@@ -20,7 +21,7 @@ block content
             canvas#weatherPie
 
       .col-md-6
-        .jumbotron.main-container
+        .jumbotron.card-container
           .row
             .col-md-12
               #champagne-shower
@@ -43,7 +44,7 @@ block content
                     th(ng-bind="racer.racesWon")
     .row
       .col-md-6
-        .jumbotron.main-container
+        .jumbotron.card-container
           .row
             .col-md-12
               #thunder
