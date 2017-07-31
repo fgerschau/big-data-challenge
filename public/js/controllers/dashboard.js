@@ -145,7 +145,6 @@ bigDataApp.controller('dashboardController', function ($scope, raceService) {
   });
 
   raceService.getTracksWithMostRacesDriven().then(function (data) {
-    console.log('asdfasd');
     $scope.topTenTracksRacesDriven = data;
   });
 });
