@@ -1,5 +1,5 @@
 ## BIG DATA CHALLENGE | Code Competition 07/2017 IT-Talents
->Lösung der [Code Competition 07/2007](https://www.it-talents.de/foerderung/code-competition/code-competition-07-2017)
+>Lösung der [Code Competition 07/2017](https://www.it-talents.de/foerderung/code-competition/code-competition-07-2017)
 
 Dieses Projekt habe ich mit dem *MEAN Stack* entwickelt. Das heißt es wurde **MongoDB** für die Datenbank, **Express** für HTTP Anfragen, **NodeJS** für das Backend und **AngularJS** für das Frontend verwendet.
 Außerdem habe ich **Pug** als *Template Engine* verwendet. Diese wird von Express zu HTML '*gerendert*'.
