@@ -94,11 +94,15 @@ function main() {
     const raceData = yield processCSV(filePath);
     logger.info('Done!');
 
-    logger.info('Inserting racedata into database');
     logger.info('  Connecting to database');
     db.connect(config);
     logger.info('  Done!');
 
+    logger.info('Deleting all races from database');
+    yield raceBll.deleteAll();
+    logger.info('  Done!');
+
+    logger.info('Inserting racedata into database');
     const dataLength = raceData.length;
     logger.info(`## Inserting ${dataLength} races into database ##`);
     for (let i = 0; i < dataLength; i++) {

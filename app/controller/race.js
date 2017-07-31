@@ -12,3 +12,20 @@ exports.create = function (req, res) {
     res.send(race);
   }).catch(handleError);
 };
+
+exports.getTrackIdsWeatherCount = function (req, res) {
+  co(function* () {
+    const weather = req.params.weather;
+    const options = req.query.options || {};
+
+    const trackIdsWeatherCount = yield raceBll.getTrackIdsWeatherCount(weather, options);
+    res.send(trackIdsWeatherCount);
+  }).catch(handleError);
+};
+
+exports.getTopTenRacers = function (req, res) {
+  co(function* () {
+    const topTenRacers = yield raceBll.getTopTenRacers();
+    res.send(topTenRacers);
+  }).catch(handleError);
+};
