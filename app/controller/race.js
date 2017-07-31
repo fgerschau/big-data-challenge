@@ -36,3 +36,10 @@ exports.countRacesPerMonth = function (req, res) {
     res.send(racesPerMonth);
   }).catch(handleError);
 };
+
+exports.getTopTenTotalMoneyRacers = function (req, res) {
+  co(function* () {
+    const topTenRacers = yield raceBll.getTopTenTotalMoneyRacers();
+    res.send(topTenRacers);
+  }).catch(handleError);
+};

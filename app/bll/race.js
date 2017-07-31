@@ -30,3 +30,8 @@ exports.countRacesPerMonth = function* () {
   const racesPerMonth = yield raceRepository.countRacesPerMonth();
   return racesPerMonth;
 };
+
+exports.getTopTenTotalMoneyRacers = function* () {
+  const topTen = yield raceRepository.getTopTenTotalMoneyRacers();
+  return topTen;
+};

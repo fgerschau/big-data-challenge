@@ -10,16 +10,28 @@ block content
         h3.subtitle.text-center Alles was du zur Formel 1 wissen musst.
     .row
       .col-md-6
-        placeholder(loadingdata="weatherChartData", height="900px")
-          .jumbotron.card-container
+        placeholder(loadingdata="topTenRacers", height="800px")
+          .jumbotron.card-container.ng-cloak
             .row
               .col-md-12
-                #sunny-track
+                #party
             hr
             .row
               .col-md-12
-                h2.card-title.text-center Sonnigste Rennbahnen
-              canvas#weatherPie
+                h2.card-title.text-center Die reichsten Rennfahrer
+            .row
+              .col-md-12
+                table.table.table-bordered
+                  .thead.thead-default
+                    tr
+                      th #
+                      th Rennfahrer ID
+                      th.text-right Gewonnenes Geld
+                  .tbody
+                    tr(ng-repeat="racer in topTenEarningRacers")
+                      th(ng-bind="$index + 1")
+                      th(ng-bind="racer._id")
+                      th.text-right(ng-bind="racer.totalMoneyWon")
 
       .col-md-6
         placeholder(loadingdata="topTenRacers", height="800px")
@@ -30,7 +42,7 @@ block content
             hr
             .row
               .col-md-12
-                h2.card-title.text-center Top 10 Rennfahrer
+                h2.card-title.text-center Die erfolgreichsten Rennfahrer
             .row
               .col-md-12
                 table.table.table-bordered
@@ -79,6 +91,18 @@ block content
               .col-md-12
                 h2.card-title.text-center Wann finden die meisten Rennen statt?
               canvas#monthRaceChart
+    .row
+      .col-md-6
+        placeholder(loadingdata="weatherChartData", height="900px")
+          .jumbotron.card-container
+            .row
+              .col-md-12
+                #sunny-track
+            hr
+            .row
+              .col-md-12
+                h2.card-title.text-center Sonnigste Rennbahnen
+              canvas#weatherPie
     
 block scripts
   script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js")

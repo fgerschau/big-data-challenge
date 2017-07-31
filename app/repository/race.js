@@ -92,3 +92,26 @@ exports.countRacesPerMonth = function* () {
 
   return yield raceModel.aggregate(query);
 };
+
+exports.getTopTenTotalMoneyRacers = function* () {
+  const query = [
+    {
+      $group: {
+        _id: '$winnerId',
+        totalMoneyWon: {
+          $sum: '$money',
+        },
+      },
+    }, {
+      $sort: {
+        totalMoneyWon: -1,
+      },
+    }, {
+      $skip: 1,
+    }, {
+      $limit: 10,
+    },
+  ];
+
+  return yield raceModel.aggregate(query);
+};

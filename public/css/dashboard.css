@@ -37,3 +37,8 @@ h3.subtitle {
   height: 100px;
   width: 100%;
 }
+#party {
+  background: url('../images/party.png') no-repeat;
+  height: 100px;
+  width: 100%;
+}

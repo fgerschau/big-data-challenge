@@ -13,6 +13,10 @@ bigDataApp.service('raceService', function ($http) {
   };
 
   this.countRacesPerMonth = function () {
-    return $http.get('/api/races/count-per-month').then(responseData);
+    return $http.get('/api/race/count-per-month').then(responseData);
+  };
+
+  this.getTopTenTotalMoneyRacers = function () {
+    return $http.get('/api/race/top-ten-earning-racers').then(responseData);
   };
 });

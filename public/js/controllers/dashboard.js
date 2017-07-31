@@ -134,4 +134,11 @@ bigDataApp.controller('dashboardController', function ($scope, raceService) {
     var monthContext = document.getElementById('monthRaceChart');
     createBarChart(chartData, labels, monthContext, '# Rennen');
   });
+
+  raceService.getTopTenTotalMoneyRacers().then(function (data) {
+    for (var i = 0; i < data.length; i++) {
+      data[i].totalMoneyWon = data[i].totalMoneyWon.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1.') + '€';
+    }
+    $scope.topTenEarningRacers = data;
+  });
 });
