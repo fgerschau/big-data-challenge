@@ -19,4 +19,8 @@ bigDataApp.service('raceService', function ($http) {
   this.getTopTenTotalMoneyRacers = function () {
     return $http.get('/api/race/top-ten-earning-racers').then(responseData);
   };
+
+  this.getTracksWithMostRacesDriven = function () {
+    return $http.get('/api/race/tracks/top-ten-races-count').then(responseData);
+  };
 });

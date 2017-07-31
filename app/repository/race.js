@@ -115,3 +115,30 @@ exports.getTopTenTotalMoneyRacers = function* () {
 
   return yield raceModel.aggregate(query);
 };
+
+exports.getTracksWithMostRacesDriven = function* () {
+  const query = [
+    {
+      $match: {
+        driven: {
+          $ne: null,
+        },
+      },
+    }, {
+      $group: {
+        _id: '$trackId',
+        racesDriven: {
+          $sum: 1,
+        },
+      },
+    }, {
+      $sort: {
+        racesDriven: -1,
+      },
+    }, {
+      $limit: 10,
+    },
+  ];
+
+  return yield raceModel.aggregate(query);
+};

@@ -35,3 +35,8 @@ exports.getTopTenTotalMoneyRacers = function* () {
   const topTen = yield raceRepository.getTopTenTotalMoneyRacers();
   return topTen;
 };
+
+exports.getTracksWithMostRacesDriven = function* () {
+  const tracks = yield raceRepository.getTracksWithMostRacesDriven();
+  return tracks;
+};

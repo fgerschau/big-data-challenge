@@ -2,6 +2,8 @@ bigDataApp.controller('dashboardController', function ($scope, raceService) {
   $scope.weatherChartData = [];
   $scope.topTenRacers = [];
   $scope.thunderyTracks = [];
+  $scope.topTenEarningRacers = [];
+
 
   var CHART_COLORS = [
     '#41337A',
@@ -140,5 +142,10 @@ bigDataApp.controller('dashboardController', function ($scope, raceService) {
       data[i].totalMoneyWon = data[i].totalMoneyWon.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1.') + '€';
     }
     $scope.topTenEarningRacers = data;
+  });
+
+  raceService.getTracksWithMostRacesDriven().then(function (data) {
+    console.log('asdfasd');
+    $scope.topTenTracksRacesDriven = data;
   });
 });

@@ -10,7 +10,7 @@ block content
         h3.subtitle.text-center Alles was du zur Formel 1 wissen musst.
     .row
       .col-md-6
-        placeholder(loadingdata="topTenRacers", height="800px")
+        placeholder(loadingdata="topTenEarningRacers", height="800px")
           .jumbotron.card-container.ng-cloak
             .row
               .col-md-12
@@ -103,6 +103,29 @@ block content
               .col-md-12
                 h2.card-title.text-center Sonnigste Rennbahnen
               canvas#weatherPie
+      .col-md-6
+        placeholder(loadingdata="topTenTracksRacesDriven", height="800px")
+          .jumbotron.card-container.ng-cloak
+            .row
+              .col-md-12
+                #fans
+            hr
+            .row
+              .col-md-12
+                h2.card-title.text-center Die meist befahrenen Rennstrecken
+            .row
+              .col-md-12
+                table.table.table-bordered
+                  .thead.thead-default
+                    tr
+                      th #
+                      th Rennstrecken ID
+                      th.text-right Gefahrene Rennen
+                  .tbody
+                    tr(ng-repeat="track in topTenTracksRacesDriven")
+                      th(ng-bind="$index + 1")
+                      th(ng-bind="track._id")
+                      th.text-right(ng-bind="track.racesDriven")
     
 block scripts
   script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js")

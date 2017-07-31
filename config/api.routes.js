@@ -5,4 +5,5 @@ module.exports = function (app) {
   app.get('/api/race/racers/top-ten', raceController.getTopTenRacers);
   app.get('/api/race/count-per-month', raceController.countRacesPerMonth);
   app.get('/api/race/top-ten-earning-racers', raceController.getTopTenTotalMoneyRacers);
+  app.get('/api/race/tracks/top-ten-races-count', raceController.getTracksWithMostRacesDriven);
 };

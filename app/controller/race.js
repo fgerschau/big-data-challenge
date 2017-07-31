@@ -43,3 +43,10 @@ exports.getTopTenTotalMoneyRacers = function (req, res) {
     res.send(topTenRacers);
   }).catch(handleError);
 };
+
+exports.getTracksWithMostRacesDriven = function (req, res) {
+  co(function* () {
+    const topTenTracks = yield raceBll.getTracksWithMostRacesDriven();
+    res.send(topTenTracks);
+  }).catch(handleError);
+};
