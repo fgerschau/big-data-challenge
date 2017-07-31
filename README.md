@@ -41,3 +41,6 @@ Mit `node scripts` starten wir das Script. Dieser Vorgang kann einige Minuten in
 
 Mit `node app` starten wir die MEAN Anwendung auf dem Port 3000.
 Die Seite können wir im Browser unter [localhost:3000](localhost:3000) aufrufen.
+
+---
+Bei Fragen kontaktiert: felix.gerschau@gmail.com
