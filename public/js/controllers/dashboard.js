@@ -3,13 +3,28 @@ bigDataApp.controller('dashboardController', function ($scope, raceService) {
   $scope.topTenRacers = [];
   $scope.thunderyTracks = [];
 
-  function createPieChart(data, labels, context) {
+  var CHART_COLORS = [
+    '#41337A',
+    '#E8871E',
+    '#EF5D60',
+    '#3E4E50',
+    '#000406',
+    '#002642',
+    '#134074',
+    '#8DA9C4',
+    '#EEF4ED',
+    '#A10702',
+    '#001524',
+    '#C3615E',
+  ];
+
+  function createPieChart(data, labels, context, text) {
     new Chart(context, {
       type: 'pie',
       options: {
         title: {
           display: true,
-          text: 'Vergleich Sonniges Wetter Rennbahnen in %',
+          text: text,
         }
       },
       data: {
@@ -17,39 +32,56 @@ bigDataApp.controller('dashboardController', function ($scope, raceService) {
         datasets: [{
           label: 'Weather probability',
           data: data,
-          backgroundColor: [
-            '#41337A',
-            '#E8871E',
-            '#EF5D60',
-            '#3E4E50',
-            '#000406',
-            '#002642',
-            '#134074',
-            '#8DA9C4',
-            '#EEF4ED',
-            '#A10702',
-            '#001524',
-            '#C3615E',
-          ],
-          borderColor: [
-            '#41337A',
-            '#E8871E',
-            '#EF5D60',
-            '#3E4E50',
-            '#000406',
-            '#002642',
-            '#134074',
-            '#8DA9C4',
-            '#EEF4ED',
-            '#A10702',
-            '#001524',
-            '#C3615E',
-
-          ],
+          backgroundColor: CHART_COLORS,
+          borderColor: CHART_COLORS,
           borderWidth: 1,
         }],
       },
     });
+  }
+
+  function createBarChart(data, labels, context, text) {
+    new Chart(context, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: text,
+          data: data,
+          backgroundColor: CHART_COLORS,
+          borderColor: CHART_COLORS,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero:true
+            }
+          }]
+        }
+      }
+    });
+  }
+
+  function mapMonth(month) {
+    var MONTHMAP = {
+      1: 'Januar',
+      2: 'Februar',
+      3: 'März',
+      4: 'April',
+      5: 'Mai',
+      6: 'Juni',
+      7: 'Juli',
+      8: 'August',
+      9: 'September',
+      10: 'Oktober',
+      11: 'November',
+      12: 'Dezember',
+    };
+
+    return MONTHMAP[month] || 'Nicht zugeordnet';
   }
 
   var weatherContext = document.getElementById('weatherPie');
@@ -69,7 +101,7 @@ bigDataApp.controller('dashboardController', function ($scope, raceService) {
       return percentage.toFixed(0)
     });
 
-    createPieChart(chartData, labels, weatherContext);
+    createPieChart(chartData, labels, weatherContext, 'Vergleich Sonniges Wetter Rennbahnen in %');
     $scope.weatherChartData = data; // for placeholder directive
   });
 
@@ -83,5 +115,23 @@ bigDataApp.controller('dashboardController', function ($scope, raceService) {
 
   raceService.getTrackIdsWeatherCount('thundery', optionsThunderCount).then(function (data) {
     $scope.thunderyTracks = data.slice(0, 3);
+  });
+
+  raceService.countRacesPerMonth().then(function (data) {
+    $scope.racesCount = data;
+    data = data.sort(function (a, b) {
+      return a._id > b._id;
+    });
+
+    var chartData = data.map(function (item) {
+      return (item.races * 100).toFixed(2);
+    });
+
+    var labels = data.map(function (item) {
+      return mapMonth(item._id);
+    });
+
+    var monthContext = document.getElementById('monthRaceChart');
+    createBarChart(chartData, labels, monthContext, '# Rennen');
   });
 });

@@ -25,3 +25,8 @@ exports.getTopTenRacers = function * () {
   const topTenRacers = yield raceRepository.getTopTenRacers();
   return topTenRacers;
 };
+
+exports.countRacesPerMonth = function* () {
+  const racesPerMonth = yield raceRepository.countRacesPerMonth();
+  return racesPerMonth;
+};

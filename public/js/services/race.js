@@ -11,4 +11,8 @@ bigDataApp.service('raceService', function ($http) {
   this.getTopTenRacers = function () {
     return $http.get('/api/race/racers/top-ten').then(responseData);
   };
+
+  this.countRacesPerMonth = function () {
+    return $http.get('/api/races/count-per-month').then(responseData);
+  };
 });

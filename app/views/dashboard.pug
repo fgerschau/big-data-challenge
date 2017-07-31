@@ -68,6 +68,17 @@ block content
                       th(ng-bind="$index + 1")
                       th(ng-bind="track.trackId")
                       th(ng-bind="track.weatherCount")
+      .col-md-6
+        placeholder(loadingdata="racesCount", height="500px")
+          .jumbotron.card-container
+            .row
+              .col-md-12
+                #race
+            hr
+            .row
+              .col-md-12
+                h2.card-title.text-center Wann finden die meisten Rennen statt?
+              canvas#monthRaceChart
     
 block scripts
   script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js")

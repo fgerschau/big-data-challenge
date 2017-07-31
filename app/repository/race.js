@@ -69,3 +69,26 @@ exports.getTopTenRacers = function* () {
     },
   ]);
 };
+
+exports.countRacesPerMonth = function* () {
+  const query = [
+    {
+      $match: {
+        driven: {
+          $ne: null,
+        },
+      },
+    }, {
+      $group: {
+        _id: {
+          $month: '$driven',
+        },
+        races: {
+          $sum: 1,
+        },
+      },
+    },
+  ];
+
+  return yield raceModel.aggregate(query);
+};

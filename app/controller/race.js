@@ -29,3 +29,10 @@ exports.getTopTenRacers = function (req, res) {
     res.send(topTenRacers);
   }).catch(handleError);
 };
+
+exports.countRacesPerMonth = function (req, res) {
+  co(function* () {
+    const racesPerMonth = yield raceBll.countRacesPerMonth();
+    res.send(racesPerMonth);
+  }).catch(handleError);
+};

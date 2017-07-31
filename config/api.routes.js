@@ -3,4 +3,5 @@ module.exports = function (app) {
   app.post('/api/race', raceController.create);
   app.get('/api/race/tracks/weather-count/:weather', raceController.getTrackIdsWeatherCount);
   app.get('/api/race/racers/top-ten', raceController.getTopTenRacers);
+  app.get('/api/races/count-per-month', raceController.countRacesPerMonth);
 };
