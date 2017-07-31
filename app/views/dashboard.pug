@@ -50,12 +50,12 @@ block content
                     tr
                       th #
                       th Rennfahrer ID
-                      th Gewonnene Rennen
+                      th.text-right Gewonnene Rennen
                   .tbody
                     tr(ng-repeat="racer in topTenRacers")
                       th(ng-bind="$index + 1")
                       th(ng-bind="racer._id")
-                      th(ng-bind="racer.racesWon")
+                      th.text-right(ng-bind="racer.racesWon")
     .row
       .col-md-6
         placeholder(loadingdata="thunderyTracks", height="400px")
@@ -66,7 +66,7 @@ block content
             hr
             .row
               .col-md-12
-                h2.card-title.text-center Meiste Gewitter
+                h2.card-title.text-center Rennbahnen mit den meisten Gewittern (insgesamt)
             .row
               .col-md-12
                 table.table.table-bordered
@@ -74,12 +74,12 @@ block content
                     tr
                       th #
                       th Strecken ID
-                      th Renntage mit Gewitter
+                      th.text-right Renntage mit Gewitter
                   .tbody
                     tr(ng-repeat="track in thunderyTracks")
                       th(ng-bind="$index + 1")
                       th(ng-bind="track.trackId")
-                      th(ng-bind="track.weatherCount")
+                      th.text-right(ng-bind="track.weatherCount")
       .col-md-6
         placeholder(loadingdata="racesCount", height="500px")
           .jumbotron.card-container
