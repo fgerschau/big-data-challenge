@@ -31,8 +31,8 @@ Im Quellverzeichnis installieren wir alle nötigen Pakete mittels `npm install` 
 
 ---
 ## Script ausführen
-> Das script im ordner `/scripts/` parst zuerst die CSV Datei und fügt danach jede Zeile in die MongoDB Datenbank ein (in die `races` Collection).
-> Daher müssen wir sicherstellen, dass ein MongoD server am laufen ist, bevor wir das Script ausführen.
+> Das Script im Ordner `/scripts/` parst zuerst die CSV Datei und fügt danach jede Zeile in die MongoDB Datenbank ein (in die `races` Collection).
+> Daher müssen wir sicherstellen, dass ein MongoD Server am laufen ist, bevor wir das Script ausführen.
 
 Mit `node scripts` starten wir das Script. Dieser Vorgang kann einige Minuten in Anspruch nehmen, da über 160.000 Dokumente in die Datenbank eingefügt werden müssen.
 
