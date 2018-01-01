@@ -15,7 +15,7 @@
     "compression": "^1.6.2",
     "csvtojson": "^1.1.7",
     "express": "^4.15.3",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-less": "^3.3.2",
     "lodash": "^4.17.4",
     "log4js": "^1.1.1",
