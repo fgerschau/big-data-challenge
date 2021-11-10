@@ -16,11 +16,11 @@
     "csvtojson": "^1.1.7",
     "express": "^4.15.3",
     "gulp": "^4.0.0",
-    "gulp-less": "^3.3.2",
+    "gulp-less": "^5.0.0",
     "lodash": "^4.17.4",
     "log4js": "^1.1.1",
     "mongoose": "^4.11.1",
-    "pug": "^2.0.0-rc.2",
+    "pug": "^3.0.0",
     "serve-favicon": "^2.4.3",
     "serve-static": "^1.12.3"
   }
