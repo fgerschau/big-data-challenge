@@ -18,7 +18,7 @@
     "gulp": "^4.0.0",
     "gulp-less": "^3.3.2",
     "lodash": "^4.17.4",
-    "log4js": "^1.1.1",
+    "log4js": "^6.4.0",
     "mongoose": "^4.11.1",
     "pug": "^2.0.0-rc.2",
     "serve-favicon": "^2.4.3",
