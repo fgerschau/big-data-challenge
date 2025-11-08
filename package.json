@@ -13,7 +13,7 @@
     "body-parser": "^1.17.2",
     "co": "^4.6.0",
     "compression": "^1.6.2",
-    "csvtojson": "^1.1.7",
+    "csvtojson": "^2.0.13",
     "express": "^4.15.3",
     "gulp": "^4.0.0",
     "gulp-less": "^3.3.2",
